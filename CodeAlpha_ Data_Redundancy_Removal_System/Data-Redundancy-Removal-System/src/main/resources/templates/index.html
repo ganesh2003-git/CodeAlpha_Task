@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Smart Data Quality Platform</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: transparent;
+        }
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .btn-custom {
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            color: black;
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+            opacity: 0.7;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container">
+
+            <a class="navbar-brand text-white fw-bold">DataQuality AI</a>
+
+            <div>
+
+               <!-- <a href="/data/records" class="btn btn-outline-light me-2">Dashboard</a>-->
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+
+                    <h1 class="hero-title">
+                        Smart Data Quality <br> & Deduplication
+                    </h1>
+
+                    <p class="hero-sub mt-4">
+                        AI powered system to detect duplicates, validate datasets and generate clean reports
+                        automatically.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a href="/data/dashboard" class="btn btn-warning btn-custom me-3">
+                            Open Dashboard
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 text-center animate__animated animate__fadeInRight">
+
+                    <img src="https://cdn-icons-png.flaticon.com/512/4149/4149658.png" width="350">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Features -->
+
+    <section class="container text-center">
+
+        <h2 class="mb-5 animate__animated animate__fadeInUp">
+            Platform Features
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <h4>CSV Upload</h4>
+
+                    <p>
+                        Upload datasets easily and process thousands of records instantly.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <h4>Duplicate Detection</h4>
+
+                    <p>
+                        Automatically detect duplicate email and phone records.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <h4>Data Validation</h4>
+
+                    <p>
+                        Validate email, phone and generate data quality reports.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Stats Section -->
+
+    <section class="container text-center mt-5">
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <h1 class="display-5">99%</h1>
+
+                <p>Accuracy</p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h1 class="display-5">10k+</h1>
+
+                <p>Records Processed</p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h1 class="display-5">1 sec</h1>
+
+                <p>Processing Time</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        Smart Data Quality Platform © 2026
+
+    </footer>
+
+</body>
+
+</html>

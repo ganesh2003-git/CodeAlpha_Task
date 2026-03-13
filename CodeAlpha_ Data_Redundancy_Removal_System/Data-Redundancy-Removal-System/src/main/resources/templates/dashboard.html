@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Data Quality Dashboard</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body {
+            background: #f4f7fb;
+            font-family: Segoe UI;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background: #1f2d3d;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background: #34495e;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+		.card:nth-child(1) { background:#3498db; color:white; }
+		.card:nth-child(2) { background:#2ecc71; color:white; }
+		.card:nth-child(3) { background:#e74c3c; color:white; }
+		.card:nth-child(4) { background:#f39c12; color:white; }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- Sidebar -->
+
+            <div class="col-md-2 sidebar">
+
+                <h4>DataQuality AI</h4>
+
+                <a href="/data/dashboard">Dashboard</a>
+                <a href="/data/records">Records</a>
+                <a href="/">Landing Page</a>
+
+            </div>
+
+
+            <!-- Main Content -->
+
+            <div class="col-md-10 p-4">
+
+                <h3 class="mb-4 animate__animated animate__fadeInDown">
+                    Dashboard
+                </h3>
+
+                <div class="row g-4">
+
+                    <div class="col-md-3">
+                        <div class="card p-3 text-center">
+                            <h5>Total Records</h5>
+                            <h2 id="totalRecords">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-3 text-center">
+                            <h5>Valid Records</h5>
+                            <h2 id="validRecords">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-3 text-center">
+                            <h5>Invalid Email</h5>
+                            <h2 id="invalidEmail">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-3 text-center">
+                            <h5>Duplicates</h5>
+                            <h2 id="duplicates">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4 p-4 text-center">
+
+                        <h4>Data Quality Score</h4>
+
+                        <h1 id="qualityScore" style="color:green;">0%</h1>
+
+                    </div>
+
+                    <div class="mt-4 text-center">
+
+                        <a href="/quality/download-clean" class="btn btn-success">
+
+                            Download Clean Dataset
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- CSV Upload -->
+
+                <div class="card mt-5">
+
+                    <div class="card-header bg-primary text-white">
+
+                        Upload Dataset
+
+                    </div>
+
+
+
+                    <div class="card-body">
+
+                        <form action="/data/upload" method="post" enctype="multipart/form-data" onsubmit="setTimeout(loadReport,1000)">
+
+                            <input type="file" name="file" class="form-control mb-3">
+
+                            <button class="btn btn-success">
+                                Upload CSV
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+		function loadReport() {
+
+		    fetch("/quality/report")
+
+		        .then(response => response.json())
+
+		        .then(data => {
+
+		            document.getElementById("totalRecords").innerText = data.totalRecords;
+
+		            document.getElementById("validRecords").innerText = data.validRecords;
+
+		            document.getElementById("invalidEmail").innerText = data.invalidEmail;
+
+		            document.getElementById("duplicates").innerText = data.duplicates;
+
+		            document.getElementById("qualityScore").innerText =
+		                data.qualityScore + "%";
+
+		        });
+
+		}
+
+		window.onload = loadReport;
+
+        // load report when page opens
+        window.onload = loadReport;
+
+    </script>
+
+</body>
+
+</html>
